@@ -14,7 +14,7 @@ export class UsersDBAccess {
         if (!user.id) {
             user.id = this.generateUserId();
         }
-        return new Promise((resolve, reject) => {
+        return new Promise<void>((resolve, reject) => {
             this.nedb.insert(user, (err: Error) => {
                 if (err) {
                     reject(err);

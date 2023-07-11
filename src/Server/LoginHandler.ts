@@ -41,7 +41,7 @@ export class LoginHandler extends BaseRequestHandler {
                 this.res.write('wrong username or password');
             }
         } catch (error) {
-            this.res.write('error: ' + error.message)
+            this.res.write('error: ' + (error as Error).message)
         }
     }
 

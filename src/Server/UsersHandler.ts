@@ -66,7 +66,7 @@ export class UsersHandler extends BaseRequestHandler {
                 await this.usersDBAccess.putUser(user);
                 this.respondText(HTTP_CODES.CREATED, `user ${user.name} created`);
             } catch (error) {
-                this.respondBadRequest(error.message);
+                this.respondBadRequest((error as Error).message);
             }
         } else {
             this.respondUnauthorized('missing or invalid authentication');
